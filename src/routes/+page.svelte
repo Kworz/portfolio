@@ -34,9 +34,9 @@
         <h3 class="mt-12">Mes compétences</h3>
 
         <div class="grid grid-cols-5 gap-4 w-max mt-4">
-            {#each techs as tech}
+            {#each techs as tech, i}
                 <a href={tech.link}>
-                    <div class="rounded-md bg-white p-2 h-12 w-12 duration-200">
+                    <div class="rounded-md bg-white p-2 h-12 w-12 duration-200 hover:scale-[1.05] {i % 2 ? "hover:skew-x-2" : "-skew-x-2"}">
                         <img src={tech.icon} alt={tech.name} class="object-contain rounded-sm h-8" />
                     </div>
                 </a>
@@ -48,17 +48,17 @@
         <div class="flex flex-col gap-4 mt-4 ml-2">
 
             <a href="https://github.com/kworz">
-                <img src="images/socials/github.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-full" alt="Logo Github"/>
+                <img src="images/socials/github.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-full hover:rotate-2 duration-500" alt="Logo Github"/>
                 Consultez mes projets sur Github
             </a>
 
             <a href="https://www.linkedin.com/in/romain-sapet-7b70491a4/">
-                <img src="images/socials/linkedin.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-full" alt="Logo Linkedin"/>
+                <img src="images/socials/linkedin.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-full hover:-rotate-2 duration-500" alt="Logo Linkedin"/>
                 Connectons nous sur Linkedin!
             </a>
 
             <a href="mailto:contact@hwxmca.fr">
-                <img src="images/socials/mail.svg" class="h-8 inline mr-2 bg-white p-1 rounded-full" alt="Pictograme Mail"/>
+                <img src="images/socials/mail.svg" class="h-8 inline mr-2 bg-white p-1 rounded-full hover:rotate-2 duration-500" alt="Pictograme Mail"/>
                 Me contacter par e-mail
             </a>
 
