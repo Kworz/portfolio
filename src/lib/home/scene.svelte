@@ -1,8 +1,12 @@
 <script lang="ts">
     import { T, useFrame } from '@threlte/core';
     import { OrbitControls, interactivity, useGltf } from '@threlte/extras';
-    import { spring } from 'svelte/motion';
-    import type { CircleGeometry, DirectionalLight, Mesh } from 'three';
+    import { spring, tweened } from 'svelte/motion';
+    import { Vector3, type CircleGeometry, type DirectionalLight, type Mesh, MeshStandardMaterial } from 'three';
+
+    import fragment from "./fragment.glsl?raw";
+    import vertex from "./vertex.glsl?raw";
+    import { quadOut } from 'svelte/easing';
 
     interactivity();
 
@@ -14,6 +18,11 @@
     const rotationY = spring(0);
     const scale = spring(0);
     const opacity = spring(0);
+
+    const pulsePosition = new Vector3()
+    const pulseTimer = tweened(0, {
+        easing: quadOut
+    })
 
     useFrame(() => {
         rotationX.set(Math.sin((performance.now() / 1000)) * 0.01);
@@ -43,8 +52,29 @@
         rotation.y={$rotationX} 
         rotation.z={$rotationY} 
         position={[0, 6, 7]}
+        on:click={({ point }) => {
+            pulsePosition.set(point.x, point.y, point.z)
+            pulseTimer.set(0, {
+              duration: 0
+            })
+            pulseTimer.set(1, {
+              duration: 5000
+            })
+          }}
     >
-        <T.MeshStandardMaterial color="white" metalness={0.1} roughness={0.5} emissive="beige" emissiveIntensity={0.2} opacity={$opacity} />
+        <T.ShaderMaterial
+            fragmentShader={fragment}
+            vertexShader={vertex}
+            uniforms={{
+            pulseTimer: {
+                value: 0
+            },
+            pulsePosition: {
+                value: pulsePosition
+            }
+            }}
+            uniforms.pulseTimer.value={$pulseTimer}
+        />
     </T.Mesh>
 {/if}
 
