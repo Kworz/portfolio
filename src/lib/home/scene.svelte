@@ -10,7 +10,7 @@
 
     interactivity();
 
-    let model = useGltf('/3d/face.gltf');
+    let model = useGltf('/3d/face.glb', { useDraco: true });
 
     let faceMesh: Mesh | undefined = undefined;
 
