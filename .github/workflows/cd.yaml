@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.SFTP_PWD }}
           port: 22
           source: "./build/*"
-          target: "./"
+          target: "./www/"
