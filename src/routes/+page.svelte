@@ -3,27 +3,26 @@
     import Scene from "$lib/home/scene.svelte";
     import { techs } from "$lib/home/techs";
     import { Canvas } from "@threlte/core";
-    import { crossfade, fade } from "svelte/transition";
+    import { fade } from "svelte/transition";
 
     import { ArrowDown } from "@steeze-ui/heroicons";
     import { Icon } from "@steeze-ui/svelte-icon";
     import { onMount } from "svelte";
+    import Section from "$lib/Section.svelte";
 
     let displayPill = false;
-
-    let selectedTech: typeof techs[number] | undefined = undefined;
 
     onMount(() => {
         setTimeout(() => {
             displayPill = true;
         }, 5000);
-    })
+    });
 
 </script>
 
-<section id="home" class="h-screen w-screen p-8 sm:p-12 md:p-16 lg:p-24 xl:p-32 bg-zinc-900 text-white">
+<Section id="home" class="h-screen w-screen bg-zinc-900 text-white">
 
-    <div class="grid grid-cols-2 h-full gap-8">
+    <div class="grid md:grid-cols-2 h-full gap-8 zstack">
 
         <div>
             <h1 class="text-6xl mb-3">Romain SAPET</h1>
@@ -33,23 +32,13 @@
     
             <div class="flex flex-row gap-4 w-max mt-8">
                 {#each techs as tech, i}
-                    <button on:click={() => selectedTech = (selectedTech !== tech) ? tech : undefined}>
+                    <a href={tech.link}>
                         <div class="rounded-md bg-white p-1 md:p-2 h-8 md:h-12 aspect-square duration-200 hover:scale-[1.05] {i % 2 ? "hover:skew-x-1" : "hover:-skew-x-1"}">
                             <img src={tech.icon} alt={tech.name} class="object-contain rounded-sm h-6 md:h-8" />
                         </div>
-                    </button>
+                    </a>
                 {/each}
             </div>
-
-            {#if selectedTech !== undefined}
-                <div in:fade out:fade class="p-4 mt-6 rounded-lg bg-zinc-700 backdrop-blur-md">
-                    <div class="flex flex-row gap-4 items-center">
-                        <img src={selectedTech.icon} class="rounded-md bg-white p-1 md:p-2 h-8 md:h-12 aspect-square object-contain" alt={selectedTech.name}/>
-                        <a href={selectedTech.link}><h3>{selectedTech.name}</h3></a>
-                    </div>
-                    <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quasi. Maxime doloribus at dolorum numquam rem fugit totam error, accusantium, inventore rerum ratione minus molestias iste accusamus iure tenetur! Atque?</p>
-                </div>
-            {/if}
     
             <h3 class="hidden lg:inline-block mt-12">Réseaux sociaux</h3>
     
@@ -72,13 +61,11 @@
     
             </div>
         </div>
-
         <div>
             <Canvas>
                 <Scene />
             </Canvas>
         </div>
-
     </div>
 
     {#if displayPill}
@@ -92,4 +79,26 @@
         </button>
     {/if}
 
-</section>
+</Section>
+
+<Section id="experience" class="">
+
+    test
+
+</Section>
+
+<Section id="experience2" class="h-screen bg-red-500">
+
+    test2
+
+</Section>
+
+<style>
+
+    @media (max-width: 768px) {
+        .zstack > div {
+            grid-area: 1 / 1 / 1 / 1;
+        }
+    }
+
+</style>

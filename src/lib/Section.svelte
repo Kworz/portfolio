@@ -1,0 +1,1 @@
+<section id={$$props.id} class="p-8 sm:p-12 md:p-16 lg:p-24 xl:p-32 {$$props.class ?? ''}"><slot /></section>
