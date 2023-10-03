@@ -111,7 +111,7 @@
 
     <h2 class="mb-16 text-center">Mes expériences</h2>
 
-    <div class="w-2/3 mx-auto flex flex-col gap-12">
+    <div class="w-2/3 mx-auto flex flex-col gap-2">
 
         <Experience date={"Septembre 2017 — Aujourd'hui"}>
 
@@ -142,7 +142,7 @@
 
         </Experience>
 
-        <Experience date="Juin 2022 — Aujourd'hui">
+        <Experience date="Juin 2022 — Aujourd'hui" last>
 
             <svelte:fragment slot="lead">
                 <a href="https://metalizz.com/"><h3>Wildcard records</h3></a>
@@ -181,6 +181,13 @@
             <div class="h-48 p-8 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/la-graine/cover.jpeg)"} style:background-size="cover" style:background-position="center">
                 <h5>La Graine</h5>
                 <p>Wildcard Record — Projet musical</p>
+            </div>
+        </a>
+
+        <a href="/projects/nomenclaturize">
+            <div class="h-48 p-8 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl bg-gradient-to-br from-pink-700 to-violet-400">
+                <h5>Nomenclaturize</h5>
+                <p>Personnel — ERP / Software fullstack</p>
             </div>
         </a>
     </div>
