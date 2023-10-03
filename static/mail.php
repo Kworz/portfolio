@@ -5,7 +5,7 @@
     
     $content = $_POST['content'];
 
-    if(!filter_var($email_a, FILTER_VALIDATE_EMAIL))
+    if(filter_var($email_a, FILTER_VALIDATE_EMAIL) === false)
     {
         echo "Merci d'entrer une adresse mail valide";
         http_response_code(400);
@@ -35,7 +35,7 @@
 
     $sent = mail('contact@hwxmca.fr', $subject, $message, $headers);
 
-    if($sent === false)
+    if($sent !== true)
     {
         echo "Erreur lors de l'envoi du message";
         http_response_code(500);
