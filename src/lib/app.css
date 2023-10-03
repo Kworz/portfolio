@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html{ scroll-behavior: smooth; }
+html{ @apply bg-zinc-900 text-zinc-900; scroll-behavior: smooth; }
 
 * {
     margin: 0;
@@ -10,8 +10,17 @@ html{ scroll-behavior: smooth; }
     font-family: "Gabarito", apple-sans, sans-serif;
 }
 
-h1 { @apply text-4xl font-bold; }
-h2 { @apply text-3xl font-bold; }
+h1 { @apply text-6xl font-bold; }
+h2 { @apply text-4xl font-bold; }
 h3 { @apply text-2xl font-bold; }
 h4 { @apply text-xl font-bold; }
 h5 { @apply text-lg font-bold; }
+
+a { @apply text-indigo-500 font-semibold hover:text-indigo-600 duration-100;}
+
+ul { @apply my-2; }
+ul > li { @apply list-disc list-inside; }
+
+input, textarea { -webkit-appearance: none; outline: none; }
+:is(input, textarea):not(:placeholder-shown):invalid { @apply ring-2 ring-red-500; }
+:is(input, textarea):not(:placeholder-shown):valid:focus { @apply ring-2 ring-green-500; }
