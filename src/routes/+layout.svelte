@@ -28,8 +28,6 @@
             if (sectionPerc > 0 && sectionPerc <= 1)
                 $section = s.id;
         }
-
-        //console.log(sectionsHeight);
     }
 
     onMount(handleScroll);
@@ -38,9 +36,11 @@
 
 <svelte:window on:scroll={handleScroll} />
 
-<nav class="fixed right-8 top-8 flex flex-row gap-12 items-center text-white text rounded-full backdrop-blur-lg py-2 px-4 bg-zinc-900/50">
+<nav class="fixed right-8 top-8 flex flex-row gap-6 items-center text-white text rounded-full backdrop-blur-lg py-2 px-4 bg-zinc-900/50">
     <a href="#home" style="--sec-height: {sectionsHeight["home"]}%; --is-lead: {$section === "home" ? "0" : "1"}" class="hover:text-zinc-300 duration-100 relative navlink">Présentation</a>
+    <div class="rounded-full h-1 w-1 bg-white"></div>
     <a href="#experience" style="--sec-height: {sectionsHeight["experience"]}%; --is-lead: {$section === "experience" ? "0" : "1"}" class="hover:text-zinc-300 duration-100 relative navlink">Experience</a>
+    <div class="rounded-full h-1 w-1 bg-white"></div>
     <a href="#experience2" style="--sec-height: {sectionsHeight["experience2"]}%; --is-lead: {$section === "experience2" ? "0" : "1"}" class="hover:text-zinc-300 duration-100 relative navlink">Experience2</a>
 </nav>
 
