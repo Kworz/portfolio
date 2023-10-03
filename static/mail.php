@@ -9,20 +9,20 @@
     {
         echo "Merci d'entrer une adresse mail valide";
         http_response_code(400);
-        exit();
+        die();
     }
 
     if(strlen($content) < 50)
     {
         echo "Merci de détailler votre demande";
         http_response_code(400);
-        exit();
+        die();
     }
 
     if(strlen($subject) < 5) {
         echo "Le sujet doit contenir au moins 5 caractères";
         http_response_code(400);
-        exit();
+        die();
     }
 
     $headers = array(
@@ -31,15 +31,15 @@
         'X-Mailer' => 'PHP/' . phpversion()
     );
 
-    $message = wordwrap($content, 70, "\r\n");
+    $message = "Début du message:\r\n\r\n" . wordwrap($content, 70, "\r\n");
 
-    $sent = mail('contact@hwxmca.fr', $subject, $message, $headers);
+    $sent = mail('contact@hwxmca.fr', "Formulaire contact:" . $subject, $message, $headers);
 
     if($sent !== true)
     {
         echo "Erreur lors de l'envoi du message";
         http_response_code(500);
-        exit();
+        die();
     }
 
     echo "Votre message a bien été envoyé !";
