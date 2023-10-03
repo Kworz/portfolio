@@ -67,17 +67,17 @@
     
                 <a href="https://github.com/kworz">
                     <img src="images/socials/github.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-lg hover:rotate-2 duration-500" alt="Logo Github"/>
-                    <span class="hidden md:inline hover:text-zinc-200 duration-100 text-lg">Consultez mes projets sur Github</span>
+                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Consultez mes projets sur Github</span>
                 </a>
     
                 <a href="https://www.linkedin.com/in/romain-sapet-7b70491a4/">
                     <img src="images/socials/linkedin.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-lg hover:-rotate-2 duration-500" alt="Logo Linkedin"/>
-                    <span class="hidden md:inline hover:text-zinc-200 duration-100 text-lg">Connectons nous sur Linkedin!</span>
+                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Connectons nous sur Linkedin!</span>
                 </a>
     
                 <a href="mailto:contact@hwxmca.fr">
                     <img src="images/socials/mail.svg" class="h-8 inline mr-2 bg-white p-1 rounded-lg hover:rotate-2 duration-500" alt="Pictograme Mail"/>
-                    <span class="hidden md:inline hover:text-zinc-200 duration-100 text-lg">Me contacter par e-mail</span>
+                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Me contacter par e-mail</span>
                 </a>
     
             </div>
@@ -132,7 +132,7 @@
             </ul>
             <p>
                 Depuis 2019, j'ai migré l'automatisation des machine d'un système traditionel (Graphcet) vers une achitecture Edge computing basée sur BalenaOS et Docker. Cette architecture bien que plus complexe a mettre en place, a l'avantage d'offrir une maintenabilité plus accrue!
-                <a href="#nusterkit">Voir plus de détails</a>
+                <a href="#projects">Voir plus de détails</a>
             </p>
 
         </Experience>
