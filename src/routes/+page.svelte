@@ -9,14 +9,35 @@
     import { Icon } from "@steeze-ui/svelte-icon";
     import { onMount } from "svelte";
     import Section from "$lib/Section.svelte";
+    import Experience from "$lib/experiences/experience.svelte";
 
     let displayPill = false;
+
+    let form: HTMLFormElement;
+
+    let formResponse: { success: boolean, message: string } | undefined = undefined; 
 
     onMount(() => {
         setTimeout(() => {
             displayPill = true;
-        }, 5000);
+        }, 2000);
     });
+
+    const sendContactForm = async () => {
+
+        const formdata = new FormData(form);
+        console.log(formdata);
+        const request = await fetch("mail.php",{ method: "POST", body: formdata});
+
+        const response = await request.text();
+
+        formResponse =  {
+            success: request.ok && request.status === 200,
+            message: response
+        };
+    }
+
+    $: if(formResponse !== undefined) { setTimeout(() => { formResponse = undefined }, formResponse.success ? 5000 : 10000) }
 
 </script>
 
@@ -81,15 +102,116 @@
 
 </Section>
 
-<Section id="experience" class="">
+<Section id="experience" class="bg-stone-100">
 
-    test
+    <h2 class="mb-16 text-center">Mes expériences</h2>
+
+    <div class="w-2/3 mx-auto flex flex-col gap-12">
+
+        <Experience date={"Septembre 2017 — Aujourd'hui"}>
+
+            <svelte:fragment slot="lead">
+                <a href="https://metalizz.com/"><h3>Metalizz</h3></a>
+                <div class="h-1 aspect-square rounded-full bg-zinc-500" />
+                <p>Responsable des études</p>
+            </svelte:fragment>
+
+            <p>
+                J'ai commencé ma carrière professionelle chez Metalizz. 
+                Société spécialisée dans l'élaboration de post-traitement inovants et la conception, fabrication et vente de machine de post-traitement des pièces plastiques en tout genre.
+            </p>
+            <p>Mon rôle était de concevoir les machines pour adapter les procédés dans des machines. J'ai ainsi pu diversifier mes compétences dans plusieurs domaines</p>
+            <ul>
+                <li>Conception mécanique</li>
+                <li>Conception électrique</li>
+                <li>Conception pneumatique</li>
+                <li>Développement logiciel</li>
+                <li>Intégration continue</li>
+                <li>Gestion d'un parc de machines</li>
+                <li>Service après-vente</li>
+            </ul>
+            <p>
+                Depuis 2019, j'ai migré l'automatisation des machine d'un système traditionel (Graphcet) vers une achitecture Edge computing basée sur BalenaOS et Docker. Cette architecture bien que plus complexe a mettre en place, a l'avantage d'offrir une maintenabilité plus accrue!
+                <a href="#nusterkit">Voir plus de détails</a>
+            </p>
+
+        </Experience>
+
+        <Experience date="Juin 2022 — Aujourd'hui">
+
+            <svelte:fragment slot="lead">
+                <a href="https://metalizz.com/"><h3>Wildcard records</h3></a>
+                <div class="h-1 aspect-square rounded-full bg-zinc-500" />
+                <p>CEO & Ingénieur du son</p>
+            </svelte:fragment>
+
+            <p>
+                En 2019, je me retrouve a créer de la musique avec quelques amis, cela ne restera pas sérieux pour beaucoup mais avec quelques uns nous avons fait le pari de se lancer. C'est pourquoi depuis quelques années, j'occupe la place de l'homme de l'ombre derrière la naissante carrière de <a href="https://open.spotify.com/intl-fr/artist/6YZvEinSwiLu5iwQSZVqUE?si=vTOsFF3XQLmjzyUck3Pxgw">Campesino</a>.
+            </p>
+            <p>
+                Mon rôle est de gérer la partie technique de la production musicale, du mixage au mastering en passant par la distribution. Les relations presse et la gestion des imprévus font aussi partie de mon quotidien.
+            </p>
+            <p>
+                C'est une expérience enrichissante qui m'as permis de découvrir l'ingénieurie audio, l'industrie musicale, le monde de l'entrepreunariat et la gestion de projets.
+            </p>
+        </Experience>
+    </div>
+</Section>
+
+<Section id="projects" class=" bg-zinc-200">
+
+    <h2 class="text-center mb-2">Projets</h2>
+    <p class="text-center">Consultez les différents projets auquels j'ai pris part.</p>
+
+    <div class="w-2/3 mx-auto grid grid-cols-4 gap-8 mt-12">
+    
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+        <div class="bg-red-500 h-40 rounded-xl"></div>
+    
+    </div>
 
 </Section>
 
-<Section id="experience2" class="h-screen bg-red-500">
+<Section id="contact" class="bg-zinc-900 text-white">
 
-    test2
+    <div class="w-2/3 mx-auto">
+
+        <h2 class="text-5xl">Me contacter</h2>
+
+        <div class="flex flex-row gap-4 mt-6 mb-12">
+            <span class="text-xl">Vous avez un projet ?</span>
+            <span class="text-xl">Vous souhaitez me contacter ?</span>
+            <span class="text-xl">Vous avez une question ?</span>
+        </div>
+
+        {#if formResponse !== undefined}
+            <p 
+                class="font-medium mb-8"
+                class:text-red-400={!formResponse.success}
+                class:text-emerald-400={formResponse.success}
+                in:fade={{ duration: 200 }}
+                out:fade={{ duration: 200 }}
+            >
+                {formResponse.message}
+            </p>
+        {/if}
+
+        <form action="mail.php" method="post" bind:this={form}>
+            <div class="grid grid-cols-2 gap-6">
+                <input type="text" placeholder="Sujet (5 caratères min.)" name="subject" class="p-4 rounded-md text-zinc-900" minlength={5} required />
+                <input type="email" placeholder="Votre addresse mail" name="sender" class="p-4 rounded-md text-zinc-900" required />
+            </div>
+            <textarea name="message" placeholder="Votre message (50 caratères min.)" class="mt-6 w-full h-96 rounded-md p-4 text-zinc-900" minlength={50} required></textarea>
+            <p class="mt-6">Tout les champs sont requis. Aucune donnée personnelle n’est conservée via ce formulaire.</p>
+            <button type="submit" class="bg-indigo-500 py-2 px-6 rounded-md mt-6" on:click={sendContactForm}>Envoyer</button>
+        </form> 
+    </div>
 
 </Section>
 
