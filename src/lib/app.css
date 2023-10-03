@@ -19,7 +19,7 @@ h5 { @apply text-lg font-bold; }
 a { @apply text-indigo-500 font-semibold hover:text-indigo-600 duration-100;}
 
 ul { @apply my-2; }
-ul > li { @apply list-disc list-inside; }
+ul > li { @apply list-disc list-inside ml-2 text-zinc-200 text-base; }
 
 input, textarea { -webkit-appearance: none; outline: none; }
 :is(input, textarea):not(:placeholder-shown):invalid { @apply ring-2 ring-red-500; }
