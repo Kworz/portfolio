@@ -1,6 +1,7 @@
 <script lang="ts">
     import "$lib/app.css";
     import Navlink from "$lib/navlink.svelte";
+    import LoadIndicator from "$lib/LoadIndicator.svelte";
     import { section } from "$lib/section";
     import { onMount } from "svelte";
 
@@ -37,6 +38,8 @@
 </script>
 
 <svelte:window on:scroll={handleScroll} />
+
+<LoadIndicator />
 
 <nav class="fixed right-8 top-8 flex flex-row gap-4 items-center text-white text rounded-full backdrop-blur-lg py-2 px-5 bg-zinc-900/50">
     <Navlink href="#home" sectionHeight={sectionsHeight["home"]} isLead={$section === "home"}>Présentation</Navlink>

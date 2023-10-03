@@ -1,6 +1,6 @@
 <script lang="ts">
     import { T, useFrame } from '@threlte/core';
-    import { HTML, interactivity, useGltf } from '@threlte/extras';
+    import { Text, Suspense, interactivity, useGltf, useSuspense } from '@threlte/extras';
     import { spring, tweened } from 'svelte/motion';
     import { Vector3, type Mesh } from 'three';
     import { quadOut } from 'svelte/easing';
@@ -9,8 +9,9 @@
     import vertex from "./vertex.glsl?raw";
 
     interactivity();
+    const suspend = useSuspense();
 
-    let model = useGltf('/3d/face.glb', { useDraco: true });
+    let model = suspend(useGltf('/3d/face.glb', { useDraco: true }));
 
     let faceMesh: Mesh | undefined = undefined;
 
@@ -46,39 +47,48 @@
 
 <svelte:window on:resize={() => fov = computeFov()} />
 
-<T.PerspectiveCamera makeDefault {fov} aspect={2} near={0.1} position={[0, 8, 20]} far={300} on:create={({ ref }) => { ref.lookAt(0, 6, 3.5);}}>
+<T.PerspectiveCamera makeDefault {fov} aspect={2} near={0.1} position={[0, 8, 20]} far={500} on:create={({ ref }) => { ref.lookAt(0, 6, 3.5);}}>
 </T.PerspectiveCamera>
 
 <T.AmbientLight />
 <T.DirectionalLight position={[0, 10, 20]} />
 <T.DirectionalLight position={[0, 20, 0]} />
 
-{#if $model}
-    <T.Mesh 
-        bind:ref={faceMesh} 
-        geometry={$model.nodes.mesh_0.geometry} 
-        scale={$scale} 
-        scale.y={0.37} 
-        rotation.x={0.05} 
-        rotation.y={$rotationX} 
-        rotation.z={$rotationY} 
+<Suspense final>
+    <Text
         position={[0, 6, 7]}
-        on:click={({ point }) => {
-            pulsePosition.set(point.x, point.y, point.z);
-            pulseTimer.set(0, { duration: 0 });
-            pulseTimer.set(1, { duration: 3000 });
-        }}
-    >
-        <T.ShaderMaterial
-            fragmentShader={fragment}
-            vertexShader={vertex}
-            uniforms={{
-                pulseTimer: { value: 0 },
-                pulsePosition: { value: pulsePosition }
+        rotation.z={Math.PI/3}
+        slot="fallback"
+        text="CHARGEMENT..."
+        characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        fontSize={1}
+        color="white"
+    />
+    {#await model then { nodes }}
+        <T.Mesh 
+            bind:ref={faceMesh} 
+            geometry={nodes.mesh_0.geometry} 
+            scale={$scale} 
+            scale.y={0.37} 
+            rotation.x={0.05} 
+            rotation.y={$rotationX} 
+            rotation.z={$rotationY} 
+            position={[0, 6, 7]}
+            on:click={({ point }) => {
+                pulsePosition.set(point.x, point.y, point.z);
+                pulseTimer.set(0, { duration: 0 });
+                pulseTimer.set(1, { duration: 3000 });
             }}
-            uniforms.pulseTimer.value={$pulseTimer}
-        />
-    </T.Mesh>
-{:else}
-    <HTML>Chargement</HTML>
-{/if}
+        >
+            <T.ShaderMaterial
+                fragmentShader={fragment}
+                vertexShader={vertex}
+                uniforms={{
+                    pulseTimer: { value: 0 },
+                    pulsePosition: { value: pulsePosition }
+                }}
+                uniforms.pulseTimer.value={$pulseTimer}
+            />
+        </T.Mesh>
+    {/await}
+</Suspense>
