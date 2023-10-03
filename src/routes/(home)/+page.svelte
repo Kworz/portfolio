@@ -126,7 +126,7 @@
                 Société spécialisée dans l'élaboration de post-traitement inovants et la conception, fabrication et vente de machine de post-traitement des pièces plastiques en tout genre.
             </p>
             <p>Mon rôle était de concevoir les machines pour adapter les procédés dans des machines. J'ai ainsi pu diversifier mes compétences dans plusieurs domaines</p>
-            <ul>
+            <ul class="[&>*]:text-zinc-900">
                 <li>Conception mécanique</li>
                 <li>Conception électrique</li>
                 <li>Conception pneumatique</li>
@@ -168,17 +168,21 @@
     <h2 class="text-center mb-2">Projets</h2>
     <p class="text-center">Consultez les différents projets auquels j'ai pris part.</p>
 
-    <div class="w-2/3 mx-auto grid grid-cols-4 gap-8 mt-12">
-    
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-        <div class="bg-red-500 h-40 rounded-xl"></div>
-    
+    <div class="w-2/3 mx-auto grid grid-cols-3 gap-8 mt-12">
+        
+        <a href="/projects/nuster-kit">
+            <div class="h-48 p-8 rounded-xl object-contain text-zinc-900 hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/nuster-kit/nuster.png)"} style:background-size="cover" style:background-position="center">
+                <h5>Nuster</h5>
+                <p>Metalizz — Software fullstack</p>
+            </div>
+        </a>
+
+        <a href="/projects/la-graine">
+            <div class="h-48 p-8 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/la-graine/cover.jpeg)"} style:background-size="cover" style:background-position="center">
+                <h5>La Graine</h5>
+                <p>Wildcard Record — Projet musical</p>
+            </div>
+        </a>
     </div>
 
 </Section>
