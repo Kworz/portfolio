@@ -1,6 +1,6 @@
 <script lang="ts">
     import { T, useFrame } from '@threlte/core';
-    import { Align, Center, HTML, interactivity, useGltf } from '@threlte/extras';
+    import { HTML, interactivity, useGltf } from '@threlte/extras';
     import { spring, tweened } from 'svelte/motion';
     import { Vector3, type Mesh } from 'three';
     import { quadOut } from 'svelte/easing';
@@ -80,5 +80,5 @@
         />
     </T.Mesh>
 {:else}
-    <HTML>Chargement...</HTML>
+    <HTML>Chargement</HTML>
 {/if}

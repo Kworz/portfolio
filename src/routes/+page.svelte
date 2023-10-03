@@ -13,7 +13,9 @@
 
     let displayPill = false;
 
-    let form: HTMLFormElement;
+    let contact_subject = "";
+    let contact_email = "";
+    let contact_message = "";
 
     let formResponse: { success: boolean, message: string } | undefined = undefined; 
 
@@ -25,8 +27,11 @@
 
     const sendContactForm = async () => {
 
-        const formdata = new FormData(form);
-        console.log(formdata);
+        const formdata = new FormData();
+        formdata.append("sender", contact_email);
+        formdata.append("subject", contact_subject);
+        formdata.append("content", contact_message);
+
         const request = await fetch("mail.php",{ method: "POST", body: formdata});
 
         const response = await request.text();
@@ -202,14 +207,14 @@
             </p>
         {/if}
 
-        <form action="mail.php" method="post" bind:this={form}>
+        <form action="mail.php" method="post">
             <div class="grid grid-cols-2 gap-6">
-                <input type="text" placeholder="Sujet (5 caratères min.)" name="subject" class="p-4 rounded-md text-zinc-900" minlength={5} required />
-                <input type="email" placeholder="Votre addresse mail" name="sender" class="p-4 rounded-md text-zinc-900" required />
+                <input bind:value={contact_subject} type="text" placeholder="Sujet (5 caratères min.)" name="subject" class="p-4 rounded-md text-zinc-900" minlength={5} required />
+                <input bind:value={contact_email} type="email" placeholder="Votre addresse mail" name="sender" class="p-4 rounded-md text-zinc-900" required />
             </div>
-            <textarea name="message" placeholder="Votre message (50 caratères min.)" class="mt-6 w-full h-96 rounded-md p-4 text-zinc-900" minlength={50} required></textarea>
+            <textarea bind:value={contact_message} name="message" placeholder="Votre message (50 caratères min.)" class="mt-6 w-full h-96 rounded-md p-4 text-zinc-900" minlength={50} required></textarea>
             <p class="mt-6">Tout les champs sont requis. Aucune donnée personnelle n’est conservée via ce formulaire.</p>
-            <button type="submit" class="bg-indigo-500 py-2 px-6 rounded-md mt-6" on:click={sendContactForm}>Envoyer</button>
+            <button type="button" class="bg-indigo-500 py-2 px-6 rounded-md mt-6" on:click|preventDefault={sendContactForm}>Envoyer</button>
         </form> 
     </div>
 
