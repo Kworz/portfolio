@@ -25,7 +25,7 @@
 </p>
 
 <p>
-    Nuster est totalement configurable en fonction de la machine que vous souhaitez équiper. Un fichier de configuration décrit le fonctionnement de votre machine. On pourrais par exemple utiliser Nuster pour votre machine à laver ou votre cafetière!
+    Nuster est totalement configurable en fonction de la machine que vous souhaitez équiper. Un fichier de configuration décrit le fonctionnement de votre machine. On pourrait par exemple utiliser Nuster pour votre machine à laver ou votre cafetière!
 </p>
 
 <h3 class="mt-8 mb-4">Exemple de configuration</h3>
@@ -70,5 +70,5 @@
 <p></p>
 
 <p class="mt-4 font-semibold text-lg">
-    Ce projet m'as permis en apprendre d'avantage sur l'industrie musicale, la distribution et la promotion d'un projet musical. J'ai également pu me pencher d'avantage sur la gestion d'un projet en équipe, car nous étions 4 concernés par ce projet.
+    Nuster est l'oeuvre de 3 années de travail, aujourd'hui c'est un logiciel abouti et fonctionnel qui est utilisé par Metalizz pour ses machines. Il m'as permis d'apprendre énormément de choses et de me perfectionner dans le développement web.
 </p>
