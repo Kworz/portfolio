@@ -5,7 +5,7 @@
     
     $content = $_POST['content'];
 
-    if(filter_var($email_a, FILTER_VALIDATE_EMAIL) === false)
+    if(filter_var($sender, FILTER_VALIDATE_EMAIL) === false)
     {
         echo "Merci d'entrer une adresse mail valide";
         http_response_code(400);
