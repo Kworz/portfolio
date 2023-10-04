@@ -10,6 +10,8 @@
     import { onMount } from "svelte";
     import Section from "$lib/Section.svelte";
     import Experience from "$lib/experiences/experience.svelte";
+    import Tech from "$lib/tech.svelte";
+    import Sociallink from "$lib/sociallink.svelte";
 
     let displayPill = false;
 
@@ -58,11 +60,7 @@
     
             <div class="flex flex-row gap-4 w-max mt-8">
                 {#each techs as tech, i}
-                    <a href={tech.link}>
-                        <div class="rounded-md bg-white p-1 md:p-2 h-8 md:h-12 aspect-square duration-200 hover:scale-[1.05] {i % 2 ? "hover:skew-x-1" : "hover:-skew-x-1"}">
-                            <img src={tech.icon} alt={tech.name} class="object-contain rounded-sm h-6 md:h-8" />
-                        </div>
-                    </a>
+                    <Tech {tech} skewWay={i % 2 === 0} />
                 {/each}
             </div>
     
@@ -70,20 +68,9 @@
     
             <div class="flex flex-row md:flex-col flex-nowrap items-center lg:items-start md:justify-around gap-4 mt-8 lg:ml-2">
     
-                <a href="https://github.com/kworz">
-                    <img src="images/socials/github.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-lg hover:rotate-2 duration-500" alt="Logo Github"/>
-                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Consultez mes projets sur Github</span>
-                </a>
-    
-                <a href="https://www.linkedin.com/in/romain-sapet-7b70491a4/">
-                    <img src="images/socials/linkedin.svg" class="h-8 inline mr-2 bg-white p-0.5 rounded-lg hover:-rotate-2 duration-500" alt="Logo Linkedin"/>
-                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Connectons nous sur Linkedin!</span>
-                </a>
-    
-                <a href="mailto:contact@hwxmca.fr">
-                    <img src="images/socials/mail.svg" class="h-8 inline mr-2 bg-white p-1 rounded-lg hover:rotate-2 duration-500" alt="Pictograme Mail"/>
-                    <span class="hidden md:inline text-white hover:text-zinc-200 duration-100 text-lg">Me contacter par e-mail</span>
-                </a>
+                <Sociallink href="https://github.com/kworz" icon="images/socials/github.svg" iconAlt="Logo Github">Consultez mes projets sur Github</Sociallink>
+                <Sociallink href="https://www.linkedin.com/in/romain-sapet-7b70491a4/" icon="images/socials/linkedin.svg" iconAlt="Logo Linkedin">Connectons nous sur Linkedin!</Sociallink>
+                <Sociallink href="#contact" icon="images/socials/mail.svg" iconAlt="Pictograme mail">Me contacter par email</Sociallink>
     
             </div>
         </div>
@@ -171,25 +158,32 @@
     <div class="w-2/3 mx-auto grid grid-cols-3 gap-8 mt-12">
         
         <a href="/projects/nuster-kit">
-            <div class="h-48 p-8 rounded-xl object-contain text-zinc-900 hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/nuster-kit/nuster.png)"} style:background-size="cover" style:background-position="center">
-                <h5>Nuster</h5>
-                <p>Metalizz — Software fullstack</p>
-            </div>
-        </a>
-
-        <a href="/projects/la-graine">
-            <div class="h-48 p-8 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/la-graine/cover.jpeg)"} style:background-size="cover" style:background-position="center">
-                <h5>La Graine</h5>
-                <p>Wildcard Record — Projet musical</p>
+            <div class="h-48 p-4 rounded-xl object-contain text-zinc-900 hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/nuster-kit/nuster.png)"} style:background-size="cover" style:background-position="center">
+                <div class="p-4 rounded-md backdrop-blur-md bg-white/25 text-zinc-900">
+                    <h4>Nuster</h4>
+                    <p>Metalizz — Software fullstack</p>
+                </div>
             </div>
         </a>
 
         <a href="/projects/nomenclaturize">
-            <div class="h-48 p-8 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl bg-gradient-to-br from-pink-700 to-violet-400">
-                <h5>Nomenclaturize</h5>
-                <p>Personnel — ERP / Software fullstack</p>
+            <div class="h-48 p-4 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl bg-gradient-to-br from-pink-700 to-violet-400">
+                <div class="p-4 rounded-md backdrop-blur-md bg-white/25 text-white">
+                    <h4>Nomenclaturize</h4>
+                    <p>Personnel — ERP / Software fullstack</p>
+                </div>
             </div>
         </a>
+
+        <a href="/projects/la-graine">
+            <div class="h-48 p-4 rounded-xl object-contain text-white hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl" style:background-image={"url(projects/la-graine/cover.jpeg)"} style:background-size="cover" style:background-position="center">
+                <div class="p-4 rounded-md backdrop-blur-md bg-white/25 text-white">
+                    <h4>La Graine</h4>
+                    <p>Wildcard Record — Projet musical</p>
+                </div>
+            </div>
+        </a>
+
     </div>
 
 </Section>
