@@ -1,6 +1,12 @@
+<script>
+    import Sociallink from "$lib/sociallink.svelte";
+</script>
+
 <h1 class="mb-8">Nomenclaturize</h1>
 
-<h2>Description du projet</h2>
+<Sociallink href="https://github.com/kworz/nomenclaturize2" icon="/images/socials/github.svg" iconAlt="Logo Github">Consultez ce projet sur github</Sociallink>
+
+<h2 class="mt-8">Description du projet</h2>
 
 <p class="mt-8">
     Nomenclaturize est un micro-ERP capable de gérer des stocks, des nomenclatures, des listes d'achat et des commandes.
