@@ -112,7 +112,7 @@
                 <li>Conception mécanique 3D</li>
                 <li>Conception électrique</li>
                 <li>Conception pneumatique</li>
-                <li>Programation FBD Automate</li>
+                <li>Programmation FBD Automate</li>
                 <li>Maintenance</li>
             </ul>
 
