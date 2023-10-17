@@ -7,7 +7,7 @@
 
 </script>
 
-<div class="h-48 p-4 rounded-2xl object-contain text-zinc-900 hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl {$$props.class || ''}" style:background-image={image} style:background-size="cover" style:background-position="center">
+<div class="p-4 rounded-2xl object-contain text-zinc-900 hover:scale-[1.02] duration-200 ease-in-out shadow-md hover:shadow-xl {$$props.class || ''}" style:background-image={image} style:background-size="cover" style:background-position="center">
     <div class="p-4 rounded-md backdrop-blur-md bg-white/25 {textColor}">
         <h4>{title}</h4>
         <p>{desc}</p>
