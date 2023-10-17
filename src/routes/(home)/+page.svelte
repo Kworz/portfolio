@@ -93,10 +93,6 @@
             <Card image="url(projects/cao-uscleaner/uscleaner.webp" title="USCleaner" desc="CAO 3D / Conception et fabrication" textColor="text-white" />
         </a>
 
-        <a href="/projects/zoo-upie">
-            <Card image="" title="Zoo Upie" desc="Maquettage / Application web" textColor="text-white" />
-        </a>
-
         <a href="/projects/la-graine">
             <Card image="url(projects/la-graine/cover.jpeg)" title="La Graine" desc="Projet musical" textColor="text-white" />
         </a>
