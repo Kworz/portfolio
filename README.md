@@ -1,38 +1,37 @@
-# create-svelte
+# 🖼️ Portfolio Romain SAPET
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Ce repository contient le code source de mon portfolio [disponible ici](https://hwxmca.fr/).
 
-## Creating a project
+## 🧱 Choix techniques
 
-If you're seeing this, you've probably already done this step. Congrats!
+Ce projet utilise:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- `Svelte` en tant que framework front-end
+- `SvelteKit` en tant que générateur de site statique (SSG)
+- `TailwindCSS` en tant que librairie CSS
+- `Three.js` & `Threlte (Core & Extras)` en tant que librairie 3D et librairie de composants Svelte
+- `Highlight.js` en tant que librairie de coloration syntaxique
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## 📝 Développement
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Ce projet est installable avec tout les gestionaires de paquest dérivés de `npm`. Il est cepandant conseillé d'utiliser pnpm car un `lockfile` est fourni.
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
 ```
 
-## Building
-
-To create a production version of your app:
+Puis démarrer le serveur de développement avec:
 
 ```bash
-npm run build
+pnpm dev
 ```
 
-You can preview the production build with `npm run preview`.
+## 📦 Construction
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Ce projet est conçu pour être déployé sur un serveur statique classique HTTP + PHP (pour l'envoi de mails de contact).
+
+Pour créer une version de production du site, utilisez la commande:
+
+```bash
+pnpm build
+```
