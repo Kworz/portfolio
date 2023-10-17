@@ -24,7 +24,7 @@
         formdata.append("subject", contact_subject);
         formdata.append("content", contact_message);
 
-        const request = await fetch("mail.php",{ method: "POST", body: formdata});
+        const request = await fetch("mail.php",{ method: "POST", body: formdata });
 
         const response = await request.text();
 
@@ -41,10 +41,14 @@
 <Section id="home" class="min-h-screen w-screen bg-zinc-900 text-white relative">
 
     <div class="grid grid-cols-1 lg:grid-cols-2 h-full gap-8 zstack">
-
         <div>
-            <h1 class="text-6xl mb-3">Romain SAPET</h1>
-            <p class="text-zinc-300 text-lg">Developpeur Web Full-Stack</p>
+            <div class="flex flex-row justify-between gap-4">
+                <div>
+                    <h1 class="text-6xl mb-3">Romain SAPET</h1>
+                    <p class="text-zinc-300 text-lg">Developpeur Web Full-Stack</p>
+                </div>
+                <img src="images/face.webp" alt="Romain SAPET" class="h-10 mt-6 xs:h-20 xs:mt-2 aspect-square rounded-full ring-2 ring-white inline lg:hidden" />
+            </div>
     
             <h2 class="hidden lg:inline-block mt-12">Mes compétences</h2>
     
@@ -63,6 +67,7 @@
                 <Sociallink href="#contact" icon="images/socials/mail.svg" iconAlt="Pictograme mail">Me contacter par email</Sociallink>
             </div>
         </div>
+
         <div class="hidden lg:block">
             <Canvas>
                 <Scene />
@@ -82,6 +87,14 @@
 
         <a href="/projects/nomenclaturize">
             <Card class="bg-gradient-to-br from-pink-700 to-violet-400" title="Nomenclaturize" desc="ERP / Web fullstack" textColor="text-white" />
+        </a>
+
+        <a href="/projects/cao-uscleaner">
+            <Card image="url(projects/cao-uscleaner/uscleaner.webp" title="USCleaner" desc="CAO 3D / Conception et fabrication" textColor="text-white" />
+        </a>
+
+        <a href="/projects/zoo-upie">
+            <Card image="" title="Zoo Upie" desc="Maquettage / Application web" textColor="text-white" />
         </a>
 
         <a href="/projects/la-graine">
