@@ -41,12 +41,12 @@
 
 <LoadIndicator />
 
-<nav class="fixed right-8 top-8 flex flex-row gap-4 items-center text-white text rounded-full backdrop-blur-lg py-2 px-5 bg-zinc-900/50">
+<nav class="z-10 hidden lg:flex fixed right-8 top-8 flex-row gap-4 items-center text-white text rounded-full backdrop-blur-lg py-2 px-5 bg-zinc-900/50">
     <Navlink href="#home" sectionHeight={sectionsHeight["home"]} isLead={$section === "home"}>Présentation</Navlink>
     <div class="rounded-full h-1 w-1 bg-white"></div>
-    <Navlink href="#experience" sectionHeight={sectionsHeight["experience"]} isLead={$section === "experience"}>Experience</Navlink>
-    <div class="rounded-full h-1 w-1 bg-white"></div>
     <Navlink href="#projects" sectionHeight={sectionsHeight["projects"]} isLead={$section === "projects"}>Projets</Navlink>
+    <div class="rounded-full h-1 w-1 bg-white"></div>
+    <Navlink href="#experience" sectionHeight={sectionsHeight["experience"]} isLead={$section === "experience"}>Experience</Navlink>
     <div class="rounded-full h-1 w-1 bg-white"></div>
     <Navlink href="#contact" sectionHeight={sectionsHeight["contact"]} isLead={$section === "contact"}>Contact</Navlink>
 </nav>
