@@ -4,9 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "pnpm build && pnpm build:sitemap",
+		"build": "pnpm build:svelte && pnpm build:sitemap",
 		"build:svelte": "vite build",
-		"build:sitemap": "pnpx svelte-sitemap --domain https://hwxmca.fr",
+		"build:sitemap": "svelte-sitemap --domain https://hwxmca.fr",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
