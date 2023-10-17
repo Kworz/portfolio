@@ -172,7 +172,7 @@
 
         {#if formResponse !== undefined}
             <p 
-                class="font-medium mb-8"
+                class="font-semibold mb-8"
                 class:text-red-400={!formResponse.success}
                 class:text-emerald-400={formResponse.success}
                 in:fade={{ duration: 200 }}
