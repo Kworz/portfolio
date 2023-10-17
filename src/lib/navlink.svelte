@@ -23,10 +23,11 @@
         display: block;
         background-color: white;
         margin-left: calc(var(--is-lead) * calc(100% - var(--sec-height)));
-        height: 1px;
+        height: 2px;
+        border-radius: 9999px;
         width: var(--sec-height);
         position: absolute;
-        bottom: 0px;
+        bottom: -1px;
         left: 0;
         transition: ease-in-out;
         transition-duration: 50ms;
