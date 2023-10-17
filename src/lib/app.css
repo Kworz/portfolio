@@ -13,10 +13,12 @@ html{ @apply bg-zinc-900 text-zinc-900; scroll-behavior: smooth; }
 h1 { @apply text-6xl font-bold; }
 h2 { @apply text-4xl font-bold; }
 h3 { @apply text-2xl font-bold; }
-h4 { @apply text-xl font-bold; }
+h4 { @apply text-xl font-bold leading-8; }
 h5 { @apply text-lg font-bold; }
 
 a { @apply text-indigo-500 font-semibold hover:text-indigo-600 duration-100;}
+
+p { @apply my-2; }
 
 ul { @apply my-2; }
 ul > li { @apply list-disc list-inside ml-2 text-zinc-200 text-base; }
