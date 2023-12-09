@@ -189,6 +189,7 @@
             </div>
             <textarea bind:value={contact_message} name="message" placeholder="Votre message (50 caratères min.)" class="mt-6 w-full h-96 rounded-md p-4 text-zinc-900" minlength={50} required></textarea>
             <p class="mt-6">Tout les champs sont requis. Aucune donnée personnelle n’est conservée via ce formulaire.</p>
+            <p class="my-2">Si vous ne souhaitez pas utiliser le formulaire de contact, envoyez moi un email à l'adresse <a href="mailto:contact@hwxmca.fr">contact@hwxmca.fr</a>.</p>
             <button type="button" class="bg-indigo-500 py-2 px-6 rounded-md mt-6" on:click|preventDefault={sendContactForm}>Envoyer</button>
         </form> 
     </div>
