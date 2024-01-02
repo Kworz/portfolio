@@ -38,13 +38,15 @@
 
 </script>
 
-<Section id="home" class="min-h-screen w-screen bg-zinc-900 text-white relative">
+<Section id="home" class="min-h-screen w-screen bg-transparent text-white">
+
+    <div class="absolute w-full h-screen top-0 -z-10 bg-zinc-900 right-0" style:mask-image="linear-gradient(transparent, black)" style:background-image="url(./grid.svg)" />
 
     <div class="grid grid-cols-1 lg:grid-cols-2 h-full gap-8 zstack">
         <div>
             <div class="flex flex-row justify-between gap-4">
                 <div>
-                    <h1 class="text-6xl mb-3">Romain SAPET</h1>
+                    <h1 class="text-6xl lg:text-8xl mb-3 bg-gradient-to-r from-violet-600 via-indigo-700 to-pink-700 bg-clip-text text-transparent relative after:content-[''] after:block lg:after:bg-white after:h-4 lg:hover:after:w-96 after:absolute after:w-32 after:duration-200 after:-translate-x-6 after:translate-y-[-22px] lg:hover:after:translate-y-[-24px] after:-z-10">Romain SAPET</h1>
                     <p class="text-zinc-300 text-lg">Developpeur Web Full-Stack</p>
                 </div>
                 <img src="images/face.webp" alt="Romain SAPET" class="h-10 mt-6 xs:h-20 xs:mt-2 aspect-square rounded-full ring-2 ring-white inline lg:hidden" />
