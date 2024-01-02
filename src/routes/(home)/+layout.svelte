@@ -2,53 +2,43 @@
     import "$lib/app.css";
     import Navlink from "$lib/navlink.svelte";
     import LoadIndicator from "$lib/LoadIndicator.svelte";
-    import { section } from "$lib/section";
-    import { onMount } from "svelte";
-
-    let sectionsHeight = {
-        home: 100,
-        experience: 0,
-        projects: 0,
-        contact: 0
-    };
-
-    const handleScroll = () => {
-
-        const sections = Array.from(document.getElementsByTagName("section")) as Array<HTMLDivElement & { id: "home" | "experience" | "projects" | "contact"}>;
-
-        for(const s of sections)
-        {
-            const { height, bottom } = s.getBoundingClientRect();
-            let sectionPerc = bottom / height;
-            
-            if(sectionPerc >= 2)
-                sectionPerc = 0;
-            else if(sectionPerc < 2 && sectionPerc > 1)
-                sectionPerc = 1 - (sectionPerc % 1);
-        
-            sectionsHeight[s.id] = (sectionPerc * 100);
-            
-            if (sectionPerc > 0 && sectionPerc <= 1)
-                $section = s.id;
-        }
-    }
-
-    onMount(handleScroll);
-
 </script>
-
-<svelte:window on:scroll={handleScroll} />
 
 <LoadIndicator />
 
-<nav class="z-10 hidden lg:flex fixed right-8 top-8 flex-row gap-4 items-center text-white text rounded-full backdrop-blur-lg py-2 px-5 bg-zinc-900/50">
-    <Navlink href="#home" sectionHeight={sectionsHeight["home"]} isLead={$section === "home"}>Présentation</Navlink>
+<nav class="z-10 hidden lg:flex fixed right-8 top-8 flex-row gap-4 items-center text-white text rounded-full backdrop-blur-lg duration-100 py-2 px-5 bg-zinc-900/50">
+    <div class="scrollmask" />
+    <Navlink href="#home">Présentation</Navlink>
     <div class="rounded-full h-1 w-1 bg-white"></div>
-    <Navlink href="#projects" sectionHeight={sectionsHeight["projects"]} isLead={$section === "projects"}>Projets</Navlink>
+    <Navlink href="#projects">Projets</Navlink>
     <div class="rounded-full h-1 w-1 bg-white"></div>
-    <Navlink href="#experience" sectionHeight={sectionsHeight["experience"]} isLead={$section === "experience"}>Experience</Navlink>
+    <Navlink href="#experience">Experience</Navlink>
     <div class="rounded-full h-1 w-1 bg-white"></div>
-    <Navlink href="#contact" sectionHeight={sectionsHeight["contact"]} isLead={$section === "contact"}>Contact</Navlink>
+    <Navlink href="#contact">Contact</Navlink>
 </nav>
 
 <slot />
+
+<style lang="postcss">
+    @media (prefers-reduced-motion: no-preference) {
+        .scrollmask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 50;
+            transition: opacity 0.2s ease-out;
+            animation: scrollmask 100ms linear;
+            animation-timeline: scroll();
+            transform-origin: left;
+            @apply backdrop-invert rounded-full overflow-hidden;
+        }
+
+        @keyframes scrollmask {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        } 
+    }
+</style>
