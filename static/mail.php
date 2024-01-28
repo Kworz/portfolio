@@ -33,7 +33,7 @@
 
     $message = "Début du message:\r\n\r\n" . wordwrap($content, 70, "\r\n");
 
-    $sent = mail('contact@hwxmca.fr', "Formulaire contact:" . $subject, $message, $headers);
+    $sent = mail('contact@zaapee.fr', "Formulaire contact:" . $subject, $message, $headers);
 
     if($sent !== true)
     {
