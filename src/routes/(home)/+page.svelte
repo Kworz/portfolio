@@ -66,9 +66,14 @@
             <Card class="bg-gradient-to-br from-pink-700 to-violet-400" title="mink" desc="ERP / Web fullstack" textColor="text-white" />
         </a>
 
+        <a href="/projects/eidos-coating">
+            <Card image="url(projects/eidos-coating/logo.png)" class="bg-white" title="Eidos coating" desc="Site vitrine / Web front-end" />
+        </a>
+
         <a href="/projects/cao-uscleaner">
             <Card image="url(projects/cao-uscleaner/uscleaner.webp" title="USCleaner" desc="CAO 3D / Conception et fabrication" textColor="text-white" />
         </a>
+        
     </div>
 </Section>
 
