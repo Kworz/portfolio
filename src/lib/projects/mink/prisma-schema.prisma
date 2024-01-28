@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model article {
+  id                String   @id @default(uuid()) @unique
+
+  name              String?
+  brand             String?
+  reference         String?
+
+  order_quantity    Float @default(0)
+  critical_quantity Int @default(0)
+
+  consumable        Boolean @default(false)
+  non_physical      Boolean @default(false)
+  internal          Boolean @default(false)
+
+  unit              String? @default("unit")
+  unit_quantity     Float?
+
+}

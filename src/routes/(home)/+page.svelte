@@ -87,16 +87,12 @@
             <Card image="url(projects/nuster-kit/nuster.png)" title="Nuster" desc="Microservices / Fullstack" />
         </a>
 
-        <a href="/projects/nomenclaturize">
-            <Card class="bg-gradient-to-br from-pink-700 to-violet-400" title="Nomenclaturize" desc="ERP / Web fullstack" textColor="text-white" />
+        <a href="/projects/mink">
+            <Card class="bg-gradient-to-br from-pink-700 to-violet-400" title="mink" desc="ERP / Web fullstack" textColor="text-white" />
         </a>
 
         <a href="/projects/cao-uscleaner">
             <Card image="url(projects/cao-uscleaner/uscleaner.webp" title="USCleaner" desc="CAO 3D / Conception et fabrication" textColor="text-white" />
-        </a>
-
-        <a href="/projects/la-graine">
-            <Card image="url(projects/la-graine/cover.jpeg)" title="La Graine" desc="Projet musical" textColor="text-white" />
         </a>
     </div>
 </Section>
