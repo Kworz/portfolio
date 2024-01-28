@@ -3,7 +3,7 @@
     import { interactivity, useGltf, useSuspense } from "@threlte/extras";
     import { quadOut } from 'svelte/easing';
     import { spring, tweened } from 'svelte/motion';
-    import { Vector3, type Mesh } from 'three';
+    import { Vector3, type Mesh, Box3 } from 'three';
     
     import fragment from "./fragment.glsl?raw";
     import vertex from "./vertex.glsl?raw";
@@ -14,6 +14,8 @@
 
     let faceMesh: Mesh | undefined = undefined;
     let model = suspend(useGltf('/3d/face.glb', { useDraco: true }));
+
+    let innerWidth = 0;
 
     const rotationX = spring(0);
     const rotationY = spring(0);
@@ -28,12 +30,15 @@
     useFrame(() => {
         rotationX.set(Math.sin((performance.now() / 1000)) * 0.01);
         rotationX.set(Math.cos((performance.now() / 1000)) * 0.015);
-        scale.set(Math.sin((performance.now() / 1000)) * 0.001 + 0.2);
+        const windowScaleFactor = innerWidth > 1440 ? 0.1 : 0.1 * ((innerWidth - 1280) / (1440 - 1280));
+        scale.set(Math.sin((performance.now() / 1000)) * 0.001 + 0.1 + windowScaleFactor);
     });
 
     $: if($model !== undefined) { scale.set(0.4); opacity.set(1); };
 
 </script>
+
+<svelte:window bind:innerWidth />
 
 {#await model then { nodes }}
     <T.Mesh 

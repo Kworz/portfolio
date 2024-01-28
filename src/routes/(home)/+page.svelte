@@ -13,21 +13,21 @@
     
 </script>
 
-<Section id="home" class="min-h-screen w-screen bg-transparent text-white">
+<Section id="home" class="min-h-screen w-screen bg-transparent text-white flex flex-col justify-center relative">
 
-    <div class="absolute w-full h-screen top-0 -z-10 bg-zinc-900 right-0" style:mask-image="linear-gradient(transparent, black)" style:background-image="url(./grid.svg)" />
+    <div class="absolute inset-0 -z-10 bg-zinc-900" style:mask-image="linear-gradient(transparent, black)" style:background-image="url(./grid.svg)" />
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 h-full gap-8 zstack">
-        <div>
+    <div class="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-2 justify-center h-full gap-8 zstack">
+        <div class="cols-span-1 xl:col-span-2 2xl:col-span-1">
             <div class="flex flex-row justify-between gap-4">
                 <div>
                     <h1 class="text-6xl lg:text-8xl mb-3 bg-gradient-to-r from-violet-600 via-indigo-700 to-pink-700 bg-clip-text text-transparent relative after:content-[''] after:block lg:after:bg-white after:h-4 lg:hover:after:w-96 after:absolute after:w-32 after:duration-200 after:-translate-x-6 after:translate-y-[-22px] lg:hover:after:translate-y-[-24px] after:-z-10">Romain SAPET</h1>
                     <p class="text-zinc-300 text-lg">Developpeur Web Full-Stack</p>
                 </div>
-                <img src="images/face.webp" alt="Romain SAPET" class="h-10 mt-6 xs:h-20 xs:mt-2 aspect-square rounded-full ring-2 ring-white inline lg:hidden" />
+                <img src="images/face.webp" alt="Romain SAPET" class="h-10 mt-6 xs:h-20 xs:mt-2 aspect-square rounded-full ring-2 ring-white hidden xs:inline xl:hidden" />
             </div>
     
-            <h2 class="hidden lg:inline-block mt-12">Mes compétences</h2>
+            <h2 class="hidden xl:inline-block mt-12">Mes compétences</h2>
     
             <div class="flex flex-row flex-wrap gap-4 mt-8">
                 {#each techs as tech, i}
@@ -35,7 +35,7 @@
                 {/each}
             </div>
     
-            <h2 class="hidden lg:inline-block mt-12">Liens</h2>
+            <h2 class="hidden xl:inline-block mt-12">Liens</h2>
     
             <div class="flex flex-col flex-nowrap items-start gap-4 mt-8 lg:ml-2">
                 <Sociallink href="https://github.com/kworz" icon="images/socials/github.svg" iconAlt="Logo Github">Consultez mes projets sur Github</Sociallink>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="hidden lg:block">
+        <div class="hidden xl:block">
             <Canvas>
                 <Scene />
             </Canvas>
