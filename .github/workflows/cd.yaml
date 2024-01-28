@@ -33,6 +33,7 @@ jobs:
         run: pnpm build
         env:
           PUBLIC_PUBLISH_DATE: ${{ steps.date.outputs.now }}
+          PUBLIC_COMMIT_ID: ${{ github.sha }}
       
       - name: 📝 SSH Copy to production server
         uses: appleboy/scp-action@master
