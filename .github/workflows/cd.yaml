@@ -29,6 +29,9 @@ jobs:
       - name: 🗂️ Install packages 
         run: pnpm install --frozen-lockfile
 
+      - name: 🔄 Sveltekit sync
+        run: pnpm sync
+
       - name: 🚀 Build
         run: pnpm build
         env:

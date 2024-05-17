@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
+		"sync": "svelte-kit sync",
 		"build": "pnpm build:svelte && pnpm build:sitemap",
 		"build:svelte": "vite build",
 		"build:sitemap": "svelte-sitemap --domain https://zaapee.fr",
