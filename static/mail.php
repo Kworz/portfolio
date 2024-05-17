@@ -1,5 +1,7 @@
 <?php
 
+    header('Content-Type: text/html; charset=utf-8');
+
     $sender = $_POST['sender'];
     $subject = $_POST['subject'];
     
@@ -28,10 +30,11 @@
     $headers = array(
         'From' => $sender,
         'Reply-To' => $sender,
-        'X-Mailer' => 'PHP/' . phpversion()
+        'X-Mailer' => 'PHP/' . phpversion(),
+        'Content-type' => 'text/plain; charset=utf-8',
     );
 
-    $message = "Début du message:\r\n\r\n" . wordwrap($content, 70, "\r\n");
+    $message = "Début du message:\r\n" . $content;
 
     $sent = mail('contact@zaapee.fr', "Formulaire contact:" . $subject, $message, $headers);
 
