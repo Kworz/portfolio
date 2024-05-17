@@ -5,12 +5,15 @@
     import changeset from "$lib/projects/nuster-kit/changeset.md?raw";
     import { markdown , json } from "svelte-highlight/languages";
     import "svelte-highlight/styles/github-dark.css";
+    import Sociallink from "$lib/sociallink.svelte";
 
 </script>
 
 <h1 class="mb-8">Nuster</h1>
 
-<h2>Description du projet</h2>
+<Sociallink href="https://github.com/metalizzsas/nusterkit" icon="/images/socials/github.svg" iconAlt="Logo Github">Consultez ce projet sur github</Sociallink>
+
+<h2 class="mt-6">Description du projet</h2>
 
 <p class="mt-8">
     Nuster est un projet software construit en micro-services. Il permet de gérer l'automatisation des machines de <a href="https://metalizz.com">Metalizz</a>.
