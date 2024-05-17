@@ -105,7 +105,7 @@
 
         </Experience>
 
-        <Experience date={"Janvier 2020 — Maintenant"} last>
+        <Experience date={"Janvier 2020 — Janvier 2024"}>
 
             <svelte:fragment slot="lead">
                 <a href="https://metalizz.com/"><h3>Metalizz</h3></a>
@@ -114,7 +114,7 @@
             </svelte:fragment>
 
             <p>
-                Depuis 2020, j'ai migré l'automatisation des machine d'un système traditionel (FBD) vers une achitecture Edge computing basée sur BalenaOS et Docker.
+                Depuis 2020, j'ai migré l'automatisation des machine d'un système traditionel (FBD) vers une achitecture Edge computing basée sur BalenaOS et Docker.<br>
                 Cette architecture bien que plus complexe à mettre en place, a l'avantage d'offrir une maintenabilité plus accrue!
             </p>
 
@@ -129,6 +129,32 @@
 
             <p>
                 Pour en savoir plus: <a href="/projects/nuster-kit">projet Nuster</a>.
+            </p>
+
+        </Experience>
+
+        <Experience date="Novembre 2023 — Aujourd'hui" last>
+
+            <svelte:fragment slot="lead">
+                <a href="https://metalizz.com/"><h3>Micro-entrepreneur</h3></a>
+                <div class="h-1 aspect-square rounded-full bg-zinc-500" />
+                <p>À mon compte</p>
+            </svelte:fragment>
+
+            <p>
+                Fin 2023, j'ai décidé de me lancer en tant que micro-entrepreneur. 
+                J'ai ainsi pu mettre à profit mes compétences dans plusieurs domaines pour diversifier mes activités.
+            </p>
+
+            <ul class="[&>*]:text-zinc-900">
+                <li>Conception & Intégration de sites Web (from scratch ou Wordpress)</li>
+                <li>Études techniques d'automatisme</li>
+                <li>Conception 3D</li>
+            </ul>
+
+            <p>
+                Je suis ouvert à toutes sortes de projets dans le monde du Web, de l'automatisme & de la conception 3D. <br>
+                N'hésitez pas à me <a href="#contact">contacter</a> pour en discuter!
             </p>
 
         </Experience>
