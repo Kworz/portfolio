@@ -26,7 +26,15 @@
         };
     }
 
-    $: if(formResponse !== undefined) { setTimeout(() => { formResponse = undefined }, formResponse.success ? 5000 : 10000) }
+    $: if(formResponse !== undefined && formResponse.success) { 
+        // Clear form
+        contact_email = "";
+        contact_subject = "";
+        contact_message = "";
+
+        // display success message for 5 seconds
+        setTimeout(() => { formResponse = undefined }, 5000);
+    }
 
 </script>
 
